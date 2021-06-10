@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  app:
+    container_name: dockerized-react-app
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - '.:/app'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
