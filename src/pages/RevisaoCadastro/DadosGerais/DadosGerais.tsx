@@ -12,7 +12,7 @@ import { TextField } from '@/components/TextField/TextField';
 import { TextInputTitle } from '@/components/TextInputTitle/TextInputTitle';
 import { Title } from '@/components/Title/Title';
 import { tokens } from '@/layout/tokens';
-import { useStyles, useStylesAutocomplete, useStylesTextfield } from './styles';
+import { useStyles, useStylesTextfield } from './styles';
 
 const departamentos = ['Dept 1', 'Dept 2', 'Dept 3'];
 const secoes = ['Secao 1', 'Secao 2', 'Secao 3'];
@@ -20,6 +20,13 @@ const marcas = [
   { id: 1, descricao: 'Marca 1' },
   { id: 2, descricao: 'Marca 2' },
   { id: 3, descricao: 'Marca 3' },
+];
+const unidadesVenda = [
+  'Un (Unidade)',
+  'Kg (Quilogramas)',
+  'Dp (Display)',
+  'Cx (Caixa)',
+  'Fd (Fardo)',
 ];
 
 type Marca = {
@@ -38,6 +45,10 @@ export const DadosGerais = (): ReactElement => {
   const [descritivoEcommerce, setDescritivoEcommerce] = useState('');
   const [marca, setMarca] = useState<undefined | Marca>(undefined);
   const [seloInmetro, setSeloInmetro] = useState('sim');
+  const [unidadeVenda, setUnidadeVenda] = useState('Un (Unidade)');
+  const [sac, setSac] = useState('');
+  const [fornecedor, setFornecedor] = useState('');
+  const [garantia, setGarantia] = useState('');
 
   const handleCodigoBarrasChange = (
     event: ChangeEvent<HTMLTextAreaElement>,
@@ -103,8 +114,21 @@ export const DadosGerais = (): ReactElement => {
     }
   };
 
+  const handleSacChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const value = event.target.value.replace(/\D/g, '');
+    setSac(value);
+  };
+
+  const handleFornecedorChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setFornecedor(event.target.value);
+  };
+
+  const handleGarantiaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const value = event.target.value.replace(/\D/g, '');
+    setGarantia(value);
+  };
+
   const classes = useStyles();
-  const classesAutocomplete = useStylesAutocomplete();
   const classesTextField = useStylesTextfield();
   const maxLengthCodigoBarras = 32;
   const maxLengthDescricaoDetalhada = 300;
@@ -112,6 +136,7 @@ export const DadosGerais = (): ReactElement => {
   const maxLengthDescricaoPdv = 20;
   const maxLengthDescricaoEcommerce = 255;
   const maxLengthDescritivoEcommerce = 4000;
+  const maxLengthSac = 12;
 
   return (
     <Box
@@ -225,16 +250,50 @@ export const DadosGerais = (): ReactElement => {
 
         <TextInputTitle>Selo Inmetro/Anvisa</TextInputTitle>
         <RadioGroup
-          key="signature"
           items={[
             { value: 'sim', label: 'sim' },
             { value: 'não', label: 'não' },
           ]}
-          name="radioGroupOpcoesAssinatura"
+          name="radioGroupSeloInmetro"
           selectedValue={seloInmetro}
           onChange={selectedValue => {
             setSeloInmetro(selectedValue);
           }}
+        />
+
+        <TextInputTitle>Unidade de Venda</TextInputTitle>
+        <RadioGroup
+          items={unidadesVenda.map(item => ({ label: item, value: item }))}
+          name="radioGroupUnidade"
+          selectedValue={unidadeVenda}
+          onChange={selectedValue => {
+            setUnidadeVenda(selectedValue);
+          }}
+        />
+
+        <TextInputTitle>SAC (Telefone)</TextInputTitle>
+        <TextField
+          fullWidth
+          value={sac}
+          maxLength={maxLengthSac}
+          onChange={handleSacChange}
+          className={classes.input}
+        />
+
+        <TextInputTitle>Fabricado/Produzido por</TextInputTitle>
+        <TextField
+          fullWidth
+          value={fornecedor}
+          onChange={handleFornecedorChange}
+          className={classes.input}
+        />
+
+        <TextInputTitle>Garantia (Meses)</TextInputTitle>
+        <TextField
+          fullWidth
+          value={garantia}
+          onChange={handleGarantiaChange}
+          className={classes.input}
         />
       </Box>
     </Box>
