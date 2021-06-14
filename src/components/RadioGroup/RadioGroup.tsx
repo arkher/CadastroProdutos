@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, RadioGroup as MUIRadioGroup } from '@material-ui/core';
+import { RadioGroup as MUIRadioGroup } from '@material-ui/core';
 import { RadioOption, RadioOptionProps } from '../RadioOption/RadioOption';
 import { useClasses } from './styles';
 
@@ -22,7 +22,6 @@ export interface RadioGroupProps {
 const RadioGroup: React.FC<RadioGroupProps> = ({
   items,
   name,
-  radioOptionStyle,
   selectedValue,
   key,
   onChange,

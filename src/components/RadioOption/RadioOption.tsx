@@ -5,14 +5,13 @@ import {
   Radio,
   RadioProps,
 } from '@material-ui/core';
-import { useClasses, useStyles } from './styles';
+import { useClasses } from './styles';
 
 export type RadioOptionProps = RadioProps & Partial<FormControlLabelProps>;
 // clsx
 const RadioOption: React.FC<RadioOptionProps> = (props: RadioOptionProps) => {
   const { label, value, checked, disabled, style, labelPlacement } = props;
   const classes = useClasses(props);
-  const formLabelControlClasses = useStyles();
 
   return (
     <FormControlLabel
