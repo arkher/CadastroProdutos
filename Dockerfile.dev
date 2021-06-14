@@ -1,19 +1,18 @@
 # pull official base image
-FROM node:12
+FROM node:12-alpine
+
+RUN mkdir /app
 
 # set working directory
 WORKDIR /app
 
 EXPOSE 3000
 
-# install app dependencies
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn
-RUN yarn global add react-scripts@4.0.0
-
 # add app
 COPY . ./
+
+# install app dependencies
+RUN yarn
 
 # start app
 CMD ["yarn", "dev"]
