@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       background: '#F7F7F7',
       height: '100vh',
+      flexDirection: 'column',
     },
     appBar: {
       zIndex: 200,

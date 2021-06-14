@@ -44,32 +44,15 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
       value={_selectedValue}
       onChange={handleChange}
     >
-      <Grid container spacing={3} style={{ marginTop: 8 }}>
-        {items.map((v, i) => (
-          <Grid
-            item
-            xs={v.gridSize || 12}
-            sm={v.gridSize || 6}
-            md={v.gridSize || 6}
-            lg={v.gridSize || 6}
-            xl={v.gridSize || 6}
-            style={{ paddingTop: '4px', paddingBottom: '4px' }}
-          >
-            <RadioOption
-              key={`option_${i + 1}`}
-              label={v.label}
-              value={v.value}
-              checked={_selectedValue === `${v.value}`}
-              style={
-                radioOptionStyle ?? {
-                  width: '100%',
-                }
-              }
-              {...v.options}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      {items.map((v, i) => (
+        <RadioOption
+          key={`option_${i + 1}`}
+          label={v.label}
+          value={v.value}
+          checked={_selectedValue === `${v.value}`}
+          {...v.options}
+        />
+      ))}
     </MUIRadioGroup>
   );
 };

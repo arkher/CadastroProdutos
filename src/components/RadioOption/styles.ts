@@ -7,12 +7,11 @@ export const useStyles = makeStyles({
   formLabelRoot: {
     backgroundColor: tokens.colorNeutral.White,
     border: `1px solid ${tokens.colorNeutral.Base}`,
-    margin: '1px',
     borderRadius: '4px',
-    justifyContent: 'space-between',
     color: tokens.colorNeutral.Dark,
     paddingRight: tokens.spacingInline.Nano,
     paddingLeft: tokens.spacingInline.Nano,
+    alignSelf: 'flex-start',
     '& .MuiTypography-root': {
       paddingRight: tokens.spacingInline.Quark,
       paddingLeft: tokens.spacingInline.Quark,
@@ -21,12 +20,11 @@ export const useStyles = makeStyles({
   formLabelChecked: {
     backgroundColor: tokens.colorBrand.Lightest,
     margin: '0px',
-    width: '200px',
     border: `2px solid ${tokens.colorBrand.Base}`,
     color: tokens.colorBrand.Base,
   },
   radioRoot: {
-    color: tokens.colorNeutral.Dark,
+    color: tokens.colorNeutral.Base,
     '&$radioChecked': {
       color: tokens.colorBrand.Base,
     },

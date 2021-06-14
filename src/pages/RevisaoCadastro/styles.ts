@@ -8,5 +8,6 @@ export const useStyles = makeStyles({
     minHeight: 600,
     width: '80%',
     padding: tokens.spacingInline.Xs,
+    // overflowY: 'scroll',
   },
 });

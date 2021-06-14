@@ -4,6 +4,13 @@ import { tokens } from '../../layout/tokens';
 export const useStyles = makeStyles({
   formLabelRoot: {
     color: tokens.colorNeutral.Dark,
+    display: 'flex',
+    flexDirection: 'column',
+
+    '& .MuiFormControlLabel-labelPlacementStart': {
+      flexDirection: 'row',
+      margin: 0,
+    },
   },
 });
 

@@ -10,7 +10,6 @@
 
 ---
 
-
 ## Configurações prévias
 
 - Typescript
@@ -59,7 +58,7 @@ Quando não precisar mais utilizar, basta executar o comando pra parar o contain
 yarn docker:stop
 ```
 
-Quando precisar utilziar o container uma outra vez, basta executar o comando pra iniciar o container
+Quando precisar utilizar o container uma outra vez, basta executar o comando pra iniciar o container
 
 ```bash
 yarn docker:start

@@ -21,12 +21,13 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
       </AppBar>
       <Box component="main" className={classes.content}>
         <Box component="div" className={classes.toolbar} />
-        <Box style={{ height: '90%' }}>{children}</Box>
-        <Box style={{ display: 'flex', height: 25 }}>
+        <Box style={{ display: 'flex', flexDirection: 'column' }}>
+          {children}
           <Typography
             style={{
-              marginLeft: 'auto',
-              marginTop: 'auto',
+              position: 'fixed',
+              right: 10,
+              bottom: 10,
               color: tokens.colorNeutral.Base,
               fontSize: tokens.fontSize.Details,
             }}

@@ -2,8 +2,6 @@ import React, { ReactElement, useState } from 'react';
 import { Box, Paper } from '@material-ui/core';
 import { CardHeader } from '@/components/CardHeader/CardHeader';
 import { Stepper } from '@/components/Stepper/Stepper';
-import { TextField } from '@/components/TextField/TextField';
-import { TextInputTitle } from '@/components/TextInputTitle/TextInputTitle';
 import { Title } from '@/components/Title/Title';
 import BaseLayout from '@/layout/base/base.layout';
 import { DadosGerais } from './DadosGerais/DadosGerais';
@@ -40,6 +38,7 @@ export const RevisaoCadastro = (): ReactElement => {
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
+          height: '85vh',
         }}
       >
         <CardHeader>
